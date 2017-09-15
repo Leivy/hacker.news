@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../resources/css/news.css" />
     <link rel="shortcut icon" href="favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="rss" />
-    <title>Hacker News</title>
+    <title>Hacker News - <%= title %></title>
 </head>
 <body>
     <center>
@@ -40,13 +40,20 @@
                 <tr style="height:10px"></tr>
                 <!-- 头部 -->
 
+
+
+
+
                 <!-- 中间新闻列表部分 -->
                 <tr>
                     <td>
                         <table border="0" cellpadding="0" cellspacing="0" class="itemlist">
+
+                        <% for(var i = 0; i < list.length; i++) { %>
+
                             <tr class="athing" id="13718752">
                                 <td align="right" valign="top" class="title">
-                                    <span class="rank">1.</span>
+                                    <span class="rank"><%= (i + 1) %>.</span>
                                 </td>
                                 <td valign="top" class="votelinks">
                                     <center>
@@ -54,7 +61,7 @@
                                     </center>
                                 </td>
                                 <td class="title">
-                                    <a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=1139" class="storylink">Cloudflare Reverse Proxies Are Dumping Uninitialized Memory</a>
+                                    <a href="/details?_id=<%= list[i]._id %>" class="storylink"><%= list[i].title %></a>
                                     <span class="sitebit comhead"> (<a href="from?site=chromium.org"><span class="sitestr">chromium.org</span></a>)</span>
                                 </td>
                             </tr>
@@ -69,6 +76,11 @@
                             </tr>
                             <tr class="spacer" style="height:5px"></tr>
 
+                        <% }%>
+
+
+
+
                             <!-- 最后一行之后还有一个More -->
                             <tr class="morespace" style="height:10px"></tr>
                             <tr>
@@ -79,6 +91,10 @@
                     </td>
                 </tr>
                 <!-- 中间新闻列表部分 -->
+
+
+
+
 
                 <!-- 尾部 -->
                 <tr>
